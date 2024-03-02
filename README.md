@@ -2,24 +2,12 @@
 
 This is a demo project for `@foblex/ng-drag-grid`, an Angular library that facilitates a clean architecture with better command-query separation for implementing drag-and-drop grid functionalities.
 
+[Drag Grid Library](https://github.com/siarheihuzarevich/f-ng-calendar-demo)
+
+[DEMO](https://github.com/siarheihuzarevich/f-ng-calendar-demo)
+
 ![Example View](example.png)
 
-### Installation
+## License
 
-Clone the demo project repository:
-
-```bash
-gh repo clone siarheihuzarevich/f-ng-calendar-demo
-```
-
-```bash
-cd demo
-```
-
-```bash
-npm install
-```
-
-```bash
-ng serve
-```
+This demo project is distributed under the MIT License. See the LICENSE file for more information.
