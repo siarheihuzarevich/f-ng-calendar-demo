@@ -1,0 +1,39 @@
+
+
+
+
+
+<f-drag-grid (fMovedTo)="onItemMovedToCell($event)">
+  <f-header>
+    <f-header-row>
+      <div class="time-cell"></div>
+      <button mat-icon-button class="previous-next-button previous" (click)="prev.emit()">
+        <mat-icon>arrow_left</mat-icon>
+      </button>
+      @for (column of viewModel?.columns; track column) {
+        <f-header-cell>{{ column.id }}</f-header-cell>
+      }
+      <button mat-icon-button class="previous-next-button next" (click)="next.emit()">
+        <mat-icon>arrow_right</mat-icon>
+      </button>
+    </f-header-row>
+  </f-header>
+  <f-body>
+    @for (row of viewModel?.rows; track row) {
+      <f-body-row>
+        <div class="time-cell">
+          <div>{{ row.id | date : 'HH:mm' }}</div>
+        </div>
+        @for (cell of row.cells; track cell) {
+          <f-body-cell [id]="cell.id">
+            @for (item of cell.items; track item) {
+              <f-cell-item [id]="item.id">
+                <schedule-item [viewModel]="item"></schedule-item>
+              </f-cell-item>
+            }
+          </f-body-cell>
+        }
+      </f-body-row>
+    }
+  </f-body>
+</f-drag-grid>

@@ -1,0 +1,20 @@
+@if (form) {
+  <mat-card class="calendar-card">
+    <mat-calendar [selected]="startDate" (selectedChange)="dateChanged($event)"></mat-calendar>
+  </mat-card>
+  <form [formGroup]="form">
+    <section class="employees-section">
+      <div class="header">Employees</div>
+      <div class="body" formArrayName="employees">
+        <ul>
+          @for (employee of employees; track employee; let i = $index) {
+            <li>
+              <mat-checkbox [formControlName]="i">{{ employee.name }}</mat-checkbox>
+            </li>
+          }
+        </ul>
+      </div>
+    </section>
+  </form>
+}
+

@@ -1,0 +1,21 @@
+@if (viewModel) {
+  <mat-card class="schedule-card"
+            fDragHandle
+            [style.border-color]="viewModel.service.color">
+    <mat-card-header>
+      <div class="service-name">{{ viewModel.service.name }}</div>
+      <button class="menu-button">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="client-name">{{ viewModel.client.name }}</div>
+      <div class="client-contact">{{ viewModel.client.phoneNumber }}</div>
+      <div class="employee-name">{{ viewModel.employee.name }}</div>
+    </mat-card-content>
+  </mat-card>
+}
+
+
+
+

@@ -1,0 +1,36 @@
+.schedule-card {
+  border-left: 2px solid;
+  border-radius: 2px;
+
+  .service-name {
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .client-contact {
+    margin-bottom: 8px;
+  }
+
+  .employee-name {
+    color: gray;
+  }
+}
+
+.menu-button {
+  position: absolute;
+  right: 8px;
+  top: 14px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+}
