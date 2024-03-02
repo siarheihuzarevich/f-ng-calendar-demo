@@ -2,7 +2,7 @@
 
 This is a demo project for `@foblex/ng-drag-grid`, an Angular library that facilitates a clean architecture with better command-query separation for implementing drag-and-drop grid functionalities.
 
-[Drag Grid Library](https://github.com/siarheihuzarevich/f-ng-calendar-demo)
+[Drag Grid Library](https://github.com/siarheihuzarevich/f-ng-drag-grid)
 
 [DEMO](https://siarheihuzarevich.github.io/f-ng-calendar-demo)
 
