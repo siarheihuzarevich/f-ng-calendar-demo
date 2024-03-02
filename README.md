@@ -4,7 +4,7 @@ This is a demo project for `@foblex/ng-drag-grid`, an Angular library that facil
 
 [Drag Grid Library](https://github.com/siarheihuzarevich/f-ng-calendar-demo)
 
-[DEMO](https://github.com/siarheihuzarevich/f-ng-calendar-demo)
+[DEMO](https://siarheihuzarevich.github.io/f-ng-calendar-demo)
 
 ![Example View](example.png)
 
