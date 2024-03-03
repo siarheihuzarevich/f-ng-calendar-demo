@@ -8,7 +8,7 @@
             <ul>
                 @for (employee of employees;track employee;let i = $index) {
                     <li>
-                        <mat-checkbox color="primary" [formControlName]="i">{{ employee.name }}</mat-checkbox>
+                        <mat-checkbox [formControlName]="i">{{ employee.name }}</mat-checkbox>
                     </li>
                 }
             </ul>

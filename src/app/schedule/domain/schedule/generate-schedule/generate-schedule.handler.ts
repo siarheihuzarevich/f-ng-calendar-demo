@@ -18,9 +18,9 @@ import { EmployeeService } from '../../../employee.service';
 export class GenerateScheduleHandler implements IHandler<GenerateScheduleRequest, ISchedule> {
 
   constructor(
-    private clientService: ClientService,
-    private serviceService: ServiceService,
-    private employeeService: EmployeeService
+      private clientService: ClientService,
+      private serviceService: ServiceService,
+      private employeeService: EmployeeService
   ) {
   }
 
@@ -43,10 +43,16 @@ export class GenerateScheduleHandler implements IHandler<GenerateScheduleRequest
     for (let i = 0; i < request.days; i++) {
       const date = new Date(request.startDate);
       date.setDate(date.getDate() + i);
-      result.push({ id: date });
+      const isToday = this.isToday(date);
+      result.push({ id: date, isToday: isToday });
     }
 
     return result;
+  }
+
+  private isToday(date: Date): boolean {
+    const today = new Date();
+    return date.getDate() === today.getDate() && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear();
   }
 
   private generateRows(request: GenerateScheduleRequest, columns: IScheduleColumn[]): IScheduleRow[] {

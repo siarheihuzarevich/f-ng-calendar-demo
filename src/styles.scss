@@ -1,5 +1,17 @@
 html, body {
   height: 100%;
+
+  --mat-datepicker-calendar-date-selected-state-background-color: #2196F3;
+  --mat-datepicker-toggle-active-state-icon-color: #2196F3;
+
+  --mdc-checkbox-selected-focus-icon-color: #2196F3;
+  --mdc-checkbox-selected-hover-icon-color: #2196F3;
+  --mdc-checkbox-selected-icon-color: #2196F3;
+  --mdc-checkbox-selected-pressed-icon-color: #2196F3;
+
+  --mdc-checkbox-selected-focus-state-layer-color: #2196F3;
+  --mdc-checkbox-selected-hover-state-layer-color: #2196F3;
+  --mdc-checkbox-selected-pressed-state-layer-color: #2196F3;
 }
 
 body {
