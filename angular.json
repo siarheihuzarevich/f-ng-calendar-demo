@@ -14,6 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/f-ng-calendar-demo",
+            "baseHref": "/f-ng-calendar-demo/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
