@@ -48,15 +48,15 @@ export class ScheduleRootComponent implements AfterViewInit, OnDestroy {
   }
 
   public nextWeek(): void {
-    const value = this.value.getValue()!;
-    value.startDate.setDate(value.startDate.getDate() + 7);
-    this.actionPanelComponent?.dateChanged(value.startDate);
+    const date = new Date(this.value.getValue()!.startDate);
+    date.setDate(date.getDate() + 7);
+    this.actionPanelComponent?.dateChanged(date);
   }
 
   public prevWeek(): void {
-    const value = this.value.getValue()!;
-    value.startDate.setDate(value.startDate.getDate() - 7);
-    this.actionPanelComponent?.dateChanged(value.startDate);
+    const date = new Date(this.value.getValue()!.startDate);
+    date.setDate(date.getDate() - 7);
+    this.actionPanelComponent?.dateChanged(date);
   }
 
   public ngOnDestroy(): void {

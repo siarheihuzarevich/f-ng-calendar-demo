@@ -4,7 +4,7 @@
             [style.border-color]="viewModel.service.color">
     <mat-card-header>
       <div class="service-name">{{ viewModel.service.name }}</div>
-      <button class="menu-button">
+      <button class="menu-button" [matMenuTriggerFor]="menu">
         <mat-icon>more_vert</mat-icon>
       </button>
     </mat-card-header>
@@ -15,7 +15,10 @@
     </mat-card-content>
   </mat-card>
 }
-
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+</mat-menu>
 
 
 

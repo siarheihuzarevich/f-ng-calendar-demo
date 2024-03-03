@@ -1,6 +1,15 @@
 .schedule-card {
   border-left: 2px solid;
   border-radius: 2px;
+  box-shadow: 0px 0px 3px 0px #eeeeee;
+
+  .mat-mdc-card-header {
+    padding: 12px 12px 0;
+  }
+
+  .mat-mdc-card-content {
+    padding: 0 12px 12px;
+  }
 
   .service-name {
     font-weight: 500;
@@ -18,17 +27,23 @@
 
 .menu-button {
   position: absolute;
-  right: 8px;
-  top: 14px;
+  right: 6px;
+  top: 10px;
   width: 24px;
   height: 24px;
   display: block;
   margin: 0;
-  padding: 0;
   border: none;
   background: none;
   outline: none;
   border-radius: 4px;
+  padding: 2px;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
 
   &:hover {
     background-color: #f5f5f5;

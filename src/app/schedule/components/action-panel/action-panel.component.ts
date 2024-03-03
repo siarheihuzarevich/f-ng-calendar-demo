@@ -2,7 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild,
 } from '@angular/core';
-import { MatCard } from '@angular/material/card';
+import { MatCard, MatCardHeader } from '@angular/material/card';
 import { MatCalendar } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatCheckbox } from '@angular/material/checkbox';
@@ -29,7 +29,8 @@ interface IFormValue {
     MatCalendar,
     MatCheckbox,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardHeader
   ]
 })
 export class ActionPanelComponent implements OnInit, OnDestroy {
