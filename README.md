@@ -1,6 +1,6 @@
 # @foblex/ng-drag-grid Demo
 
-This is a demo project for `@foblex/ng-drag-grid`, an Angular library that facilitates a clean architecture with better command-query separation for implementing drag-and-drop grid functionalities.
+This demo project showcases the capabilities of `@foblex/ng-drag-grid`, a library for Angular that makes it easy to create interactive grids for schedules, calendars, and task boards. The library provides flexible tools for implementing drag-and-drop functionalities and managing grid elements, giving developers the toolkit needed to create complex user interfaces.
 
 [Drag Grid Library](https://github.com/siarheihuzarevich/f-ng-drag-grid)
 
