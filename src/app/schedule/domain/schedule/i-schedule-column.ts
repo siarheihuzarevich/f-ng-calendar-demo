@@ -1,4 +1,4 @@
 export interface IScheduleColumn {
 
-  id: string;
+  id: Date;
 }

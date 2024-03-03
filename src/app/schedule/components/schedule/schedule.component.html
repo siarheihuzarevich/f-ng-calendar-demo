@@ -1,8 +1,3 @@
-
-
-
-
-
 <f-drag-grid (fMovedTo)="onItemMovedToCell($event)">
   <f-header>
     <f-header-row>
@@ -11,7 +6,10 @@
         <mat-icon>arrow_left</mat-icon>
       </button>
       @for (column of viewModel?.columns; track column) {
-        <f-header-cell>{{ column.id }}</f-header-cell>
+        <f-header-cell>
+            <div class="day-of-week">{{ column.id | date : 'EE' }}</div>
+            <div class="date">{{ column.id | date : 'd' }}</div>
+        </f-header-cell>
       }
       <button mat-icon-button class="previous-next-button next" (click)="next.emit()">
         <mat-icon>arrow_right</mat-icon>

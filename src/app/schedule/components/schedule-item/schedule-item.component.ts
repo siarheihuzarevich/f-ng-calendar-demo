@@ -9,6 +9,7 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { IScheduleItem } from '../../domain/schedule/i-schedule-item';
 import { MatIcon } from '@angular/material/icon';
 import { FDragHandleDirective } from '@foblex/ng-drag-grid';
+import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'schedule-item',
@@ -24,7 +25,10 @@ import { FDragHandleDirective } from '@foblex/ng-drag-grid';
     MatButton,
     FDragHandleDirective,
     MatIconButton,
-    MatIcon
+    MatIcon,
+    MatMenu,
+    MatMenuItem,
+    MatMenuTrigger
   ]
 })
 export class ScheduleItemComponent {

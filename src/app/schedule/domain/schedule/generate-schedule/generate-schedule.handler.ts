@@ -43,7 +43,7 @@ export class GenerateScheduleHandler implements IHandler<GenerateScheduleRequest
     for (let i = 0; i < request.days; i++) {
       const date = new Date(request.startDate);
       date.setDate(date.getDate() + i);
-      result.push({ id: date.toISOString().split('T')[ 0 ] });
+      result.push({ id: date });
     }
 
     return result;
