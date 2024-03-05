@@ -1,10 +1,9 @@
 :host {
   display: flex;
   flex-direction: column;
-  flex: 2;
   height: 100%;
   max-width: 300px;
-  min-width: 280px;
+  min-width: 242px;
   padding: 16px;
   border-right: 1px solid #f5f5f5;
   overflow: hidden;
@@ -19,13 +18,15 @@
 }
 
 .employees-card {
-  padding: 12px 8px;
+  padding: 0;
 
   .employees-header {
     padding-left: 12px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 8px;
+    color: #3c4043;
   }
 
   ul {
@@ -33,6 +34,6 @@
     margin: 0;
     padding: 0;
   }
-
 }
+
 

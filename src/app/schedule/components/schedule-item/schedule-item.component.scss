@@ -2,6 +2,10 @@
   border-left: 2px solid;
   border-radius: 2px;
   box-shadow: 0px 0px 3px 0px #eeeeee;
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  line-height: 15px;
+  color: #676b6f;
 
   .mat-mdc-card-header {
     padding: 12px 12px 0;
@@ -14,14 +18,11 @@
   .service-name {
     font-weight: 500;
     margin-bottom: 8px;
+    color: #3C4043;
   }
 
   .client-contact {
     margin-bottom: 8px;
-  }
-
-  .employee-name {
-    color: gray;
   }
 }
 

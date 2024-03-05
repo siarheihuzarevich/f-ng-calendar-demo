@@ -1,0 +1,46 @@
+.mat-calendar {
+  --mat-datepicker-calendar-date-selected-state-background-color: var(--blue-color);
+  --mat-datepicker-toggle-active-state-icon-color: var(--blue-color);
+}
+
+.mat-calendar {
+  width: 210px;
+
+  --mat-datepicker-calendar-date-text-color: #2c2e31;
+  --mat-datepicker-calendar-text-size: 10px;
+
+  .mat-calendar-content {
+    padding: 0;
+  }
+
+  .mat-calendar-table-header {
+    border: none;
+
+    th {
+      font-size: 10px;
+      font-weight: 500;
+      color: #70757a;
+      padding: 0;
+    }
+
+    .mat-calendar-table-header-divider {
+      display: none;
+    }
+  }
+
+  .mat-calendar-body {
+    min-width: unset;
+
+    .mat-calendar-body-label {
+      opacity: 0;
+      user-select: none;
+      padding: 0;
+    }
+
+    .mat-calendar-body-cell-container {
+      .mat-calendar-body-cell-content {
+        font-size: var(--mat-datepicker-calendar-text-size);
+      }
+    }
+  }
+}

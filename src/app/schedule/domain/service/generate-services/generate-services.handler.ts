@@ -28,7 +28,7 @@ export class GenerateServicesHandler implements IHandler<GenerateServicesRequest
 
 function generateColors(count: number): string[] {
   const colors: string[] = [];
-  const saturation: number = 80;
+  const saturation: number = 40;
   const lightness: number = 50;
 
   for (let i = 0; i < count; i++) {

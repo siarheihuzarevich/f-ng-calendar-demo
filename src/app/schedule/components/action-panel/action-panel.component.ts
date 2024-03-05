@@ -3,14 +3,14 @@ import {
   Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild,
 } from '@angular/core';
 import { MatCard, MatCardHeader } from '@angular/material/card';
-import { MatCalendar } from '@angular/material/datepicker';
-import { provideNativeDateAdapter } from '@angular/material/core';
+import { MatCalendar, MatCalendarBody } from '@angular/material/datepicker';
 import { MatCheckbox } from '@angular/material/checkbox';
 import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IEmployee } from '../../domain/employee/i-employee';
 import { EmployeeService } from '../../employee.service';
 import { startWith, Subscription } from 'rxjs';
 import { IActionPanelValue } from './i-action-panel-value';
+import { DatePickerComponent } from '../date-picker/date-picker.component';
 
 interface IFormValue {
   startDate: Date;
@@ -23,14 +23,16 @@ interface IFormValue {
   styleUrl: './action-panel.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ provideNativeDateAdapter() ],
+
   imports: [
     MatCard,
     MatCalendar,
     MatCheckbox,
     FormsModule,
     ReactiveFormsModule,
-    MatCardHeader
+    MatCardHeader,
+    MatCalendarBody,
+    DatePickerComponent
   ]
 })
 export class ActionPanelComponent implements OnInit, OnDestroy {
@@ -39,12 +41,7 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
 
   public employees: IEmployee[] = [];
 
-  public startDate: Date = new Date();
-
   public form: FormGroup | undefined;
-
-  @ViewChild(MatCalendar)
-  public calendar: MatCalendar<Date> | undefined;
 
   @Output()
   public valueChange: EventEmitter<IActionPanelValue> = new EventEmitter<IActionPanelValue>();
@@ -65,7 +62,7 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
       return new FormControl(true);
     });
     return new FormGroup({
-      startDate: new FormControl(this.startDate),
+      startDate: new FormControl(new Date()),
       employees: new FormArray([
         ...employees
       ])
@@ -87,9 +84,7 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
   }
 
   public dateChanged(date: Date): void {
-    this.startDate = date;
     this.form?.get('startDate')?.setValue(date);
-    this.calendar!.updateTodaysDate();
   }
 
   public ngOnDestroy(): void {

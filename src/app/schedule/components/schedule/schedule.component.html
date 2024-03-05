@@ -2,18 +2,16 @@
     <f-header>
         <f-header-row>
             <div class="time-cell"></div>
-            <button mat-icon-button class="previous-next-button previous" (click)="prev.emit()">
+            <button class="change-date-button previous" (click)="prev.emit()">
                 <mat-icon>arrow_left</mat-icon>
             </button>
             @for (column of viewModel?.columns;track column) {
-                <f-header-cell>
-                    <div class="date-container" [class.today]="column.isToday">
-                        <div class="day-of-week">{{ column.id | date : 'EE' }}</div>
-                        <div class="date">{{ column.id | date : 'd' }}</div>
-                    </div>
+                <f-header-cell [class.today]="column.isToday">
+                    <div class="day-of-week">{{ column.id | date : 'EE' }}</div>
+                    <div class="date">{{ column.id | date : 'd' }}</div>
                 </f-header-cell>
             }
-            <button mat-icon-button class="previous-next-button next" (click)="next.emit()">
+            <button class="change-date-button next" (click)="next.emit()">
                 <mat-icon>arrow_right</mat-icon>
             </button>
         </f-header-row>

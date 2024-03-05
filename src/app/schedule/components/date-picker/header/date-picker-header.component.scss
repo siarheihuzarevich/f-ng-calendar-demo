@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 4px;
+
+  .period-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .25px;
+    line-height: 20px;
+    color: #3c4043;
+    padding-left: 6px;
+  }
+
+  button {
+    width: 24px;
+    height: 24px;
+    color: rgb(95, 99, 104);
+    background-color: unset;
+    outline: unset;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 3px;
+
+    &:hover {
+      background-color: rgba(95, 99, 104, 0.04);
+    }
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
