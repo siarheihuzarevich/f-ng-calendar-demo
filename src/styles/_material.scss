@@ -1,9 +1,6 @@
 .mat-calendar {
   --mat-datepicker-calendar-date-selected-state-background-color: var(--blue-color);
   --mat-datepicker-toggle-active-state-icon-color: var(--blue-color);
-}
-
-.mat-calendar {
   width: 210px;
 
   --mat-datepicker-calendar-date-text-color: #2c2e31;
@@ -43,4 +40,31 @@
       }
     }
   }
+}
+
+.mat-mdc-card {
+  border-radius: 8px;
+}
+
+.mdc-form-field {
+  --mdc-form-field-label-text-size: 12px;
+}
+
+.mat-mdc-menu-panel {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12) !important;
+  border-radius: 4px !important;
+  min-width: 190px !important;
+
+  .mat-mdc-menu-item {
+    min-height: 36px;
+
+    .mat-mdc-menu-item-text {
+      font-size: 14px !important;
+      color: #5f6368;
+    }
+  }
+}
+
+.mat-mdc-checkbox {
+  --mdc-checkbox-state-layer-size: 32px;
 }

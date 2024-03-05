@@ -5,7 +5,7 @@
   font-size: 12px;
   letter-spacing: 0.1px;
   line-height: 15px;
-  color: #676b6f;
+  color: var(--text-color);
 
   .mat-mdc-card-header {
     padding: 12px 12px 0;
@@ -37,8 +37,10 @@
   border: none;
   background: none;
   outline: none;
-  border-radius: 4px;
+  border-radius: 50%;
   padding: 2px;
+  cursor: pointer;
+  color: var(--text-color);
 
   mat-icon {
     font-size: 20px;
@@ -47,6 +49,6 @@
   }
 
   &:hover {
-    background-color: #f5f5f5;
+    background-color: var(--hovered-background-color);
   }
 }

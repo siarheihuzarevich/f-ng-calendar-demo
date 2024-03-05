@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 24px;
+}
+
+.settings-button {
+  border: none;
+  background: none;
+  outline: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  cursor: pointer;
+
+  mat-icon {
+    color: var(--text-color);
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
+
+  &:hover {
+    background-color: var(--hovered-background-color);
+  }
+}

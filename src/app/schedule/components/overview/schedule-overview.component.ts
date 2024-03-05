@@ -9,9 +9,9 @@ import { IActionPanelValue } from '../action-panel/i-action-panel-value';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'schedule-root',
-  templateUrl: './schedule-root.component.html',
-  styleUrl: './schedule-root.component.scss',
+  selector: 'schedule-overview',
+  templateUrl: './schedule-overview.component.html',
+  styleUrl: './schedule-overview.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
@@ -19,7 +19,7 @@ import { BehaviorSubject, Subscription } from 'rxjs';
     ScheduleComponent
   ]
 })
-export class ScheduleRootComponent implements AfterViewInit, OnDestroy {
+export class ScheduleOverviewComponent implements AfterViewInit, OnDestroy {
 
   private subscriptions: Subscription = new Subscription();
 
