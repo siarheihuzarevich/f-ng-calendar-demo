@@ -1,6 +1,6 @@
 import {
   ChangeDetectionStrategy,
-  Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild,
+  Component, EventEmitter, OnDestroy, OnInit, Output,
 } from '@angular/core';
 import { MatCard, MatCardHeader } from '@angular/material/card';
 import { MatCalendar, MatCalendarBody } from '@angular/material/datepicker';
@@ -11,6 +11,7 @@ import { EmployeeService } from '../../employee.service';
 import { startWith, Subscription } from 'rxjs';
 import { IActionPanelValue } from './i-action-panel-value';
 import { DatePickerComponent } from '../date-picker/date-picker.component';
+import { MatButton } from '@angular/material/button';
 
 interface IFormValue {
   startDate: Date;
@@ -23,7 +24,6 @@ interface IFormValue {
   styleUrl: './action-panel.component.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-
   imports: [
     MatCard,
     MatCalendar,
@@ -32,7 +32,8 @@ interface IFormValue {
     ReactiveFormsModule,
     MatCardHeader,
     MatCalendarBody,
-    DatePickerComponent
+    DatePickerComponent,
+    MatButton
   ]
 })
 export class ActionPanelComponent implements OnInit, OnDestroy {
@@ -47,7 +48,7 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
   public valueChange: EventEmitter<IActionPanelValue> = new EventEmitter<IActionPanelValue>();
 
   constructor(
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
   ) {
   }
 
@@ -85,6 +86,10 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
 
   public dateChanged(date: Date): void {
     this.form?.get('startDate')?.setValue(date);
+  }
+
+  public createScheduleItem(): void {
+    alert('create');
   }
 
   public ngOnDestroy(): void {

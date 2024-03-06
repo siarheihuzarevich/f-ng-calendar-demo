@@ -1,5 +1,7 @@
 @if (form) {
     <ng-container [formGroup]="form">
+        <button class="create-button" (click)="createScheduleItem()">Create New</button>
+
         <mat-card class="calendar-card">
             <date-picker formControlName="startDate"></date-picker>
         </mat-card>

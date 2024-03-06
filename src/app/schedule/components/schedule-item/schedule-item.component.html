@@ -16,8 +16,8 @@
   </mat-card>
 }
 <mat-menu #menu="matMenu">
-    <button mat-menu-item>Edit</button>
-    <button mat-menu-item>Delete</button>
+    <button mat-menu-item (click)="editScheduleItem()">Edit</button>
+    <button mat-menu-item (click)="deleteScheduleItem()">Delete</button>
 </mat-menu>
 
 

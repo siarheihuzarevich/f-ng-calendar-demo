@@ -17,6 +17,25 @@
   box-shadow: none;
 }
 
+.create-button {
+  font-family: Roboto;
+  border: none;
+  background: white;
+  outline: none;
+  padding: 10px;
+  color: #3c4043;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 16px;
+  text-transform: uppercase;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--hovered-background-color);
+  }
+}
+
 .employees-card {
   padding: 0;
 

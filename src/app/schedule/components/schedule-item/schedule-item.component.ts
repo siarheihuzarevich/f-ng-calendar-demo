@@ -37,7 +37,15 @@ export class ScheduleItemComponent {
   public viewModel: IScheduleItem | undefined;
 
   constructor(
-    private elementReference: ElementRef<HTMLElement>
+      private elementReference: ElementRef<HTMLElement>
   ) {
+  }
+
+  public editScheduleItem(): void {
+    alert('edit');
+  }
+
+  public deleteScheduleItem(): void {
+    alert('delete');
   }
 }
