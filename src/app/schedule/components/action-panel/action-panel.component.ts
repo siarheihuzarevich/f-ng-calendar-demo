@@ -8,10 +8,13 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IEmployee } from '../../domain/employee/i-employee';
 import { EmployeeService } from '../../employee.service';
-import { startWith, Subscription } from 'rxjs';
+import { startWith, Subscription, take } from 'rxjs';
 import { IActionPanelValue } from './i-action-panel-value';
 import { DatePickerComponent } from '../date-picker/date-picker.component';
 import { MatButton } from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateScheduleItemComponent } from '../create-schedule-item/create-schedule-item.component';
+import { INewScheduleItem } from '../../domain/i-new-schedule-item';
 
 interface IFormValue {
   startDate: Date;
@@ -47,8 +50,12 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
   @Output()
   public valueChange: EventEmitter<IActionPanelValue> = new EventEmitter<IActionPanelValue>();
 
+  @Output()
+  public createItem: EventEmitter<INewScheduleItem> = new EventEmitter<INewScheduleItem>();
+
   constructor(
-    private employeeService: EmployeeService,
+      private employeeService: EmployeeService,
+      private dialog: MatDialog
   ) {
   }
 
@@ -79,7 +86,7 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
   private generateSchedule(value: IFormValue): void {
     const result = {
       startDate: value.startDate,
-      employees: this.employees.filter((x, index) => value.employees[index]).map((x) => x.id)
+      employees: this.employees.filter((x, index) => value.employees[ index ]).map((x) => x.id)
     }
     this.valueChange.emit(result);
   }
@@ -89,7 +96,17 @@ export class ActionPanelComponent implements OnInit, OnDestroy {
   }
 
   public createScheduleItem(): void {
-    alert('create');
+    this.openDatePicker();
+  }
+
+  public openDatePicker(): void {
+    this.dialog.open(CreateScheduleItemComponent, {
+      width: '640px'
+    }).afterClosed().pipe(take(1)).subscribe((x: INewScheduleItem | undefined) => {
+      if (x) {
+        this.createItem.emit(x);
+      }
+    });
   }
 
   public ngOnDestroy(): void {

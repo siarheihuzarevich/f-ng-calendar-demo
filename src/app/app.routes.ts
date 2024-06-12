@@ -8,7 +8,7 @@ export const routes: Routes = [ {
   children: [
     {
       path: '',
-      component: ScheduleOverviewComponent
+      loadComponent: () => import('./schedule/components/overview/schedule-overview.component').then(x => x.ScheduleOverviewComponent)
     }
   ]
 } ];

@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Create</h2>
+<mat-dialog-content>
+    @if (form) {
+        <form [formGroup]="form">
+            <mat-form-field (click)="picker.open()">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" readonly formControlName="date">
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Time</mat-label>
+                <mat-select formControlName="time">
+                    @for (item of times; track item.id) {
+                        <mat-option [value]="item.id">{{item.id | date : 'HH:mm'}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Clients</mat-label>
+                <mat-select formControlName="client">
+                    @for (item of clients; track item.id) {
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Services</mat-label>
+                <mat-select formControlName="service">
+                    @for (item of services; track item.id) {
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Employee</mat-label>
+                <mat-select formControlName="employee">
+                    @for (item of employees; track item.id) {
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+        </form>
+    }
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="onSubmit()" cdkFocusInitial [disabled]="!form?.valid">Create</button>
+</mat-dialog-actions>

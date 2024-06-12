@@ -7,6 +7,7 @@ import { ActionPanelComponent } from '../action-panel/action-panel.component';
 import { ScheduleComponent } from '../schedule/schedule.component';
 import { IActionPanelValue } from '../action-panel/i-action-panel-value';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { INewScheduleItem } from '../../domain/i-new-schedule-item';
 
 @Component({
   selector: 'schedule-overview',
@@ -57,6 +58,10 @@ export class ScheduleOverviewComponent implements AfterViewInit, OnDestroy {
     const date = new Date(this.value.getValue()!.startDate);
     date.setDate(date.getDate() - 7);
     this.actionPanelComponent?.dateChanged(date);
+  }
+
+  public onItemCreated(item: INewScheduleItem): void {
+    this.scheduleComponent?.createItem(item);
   }
 
   public ngOnDestroy(): void {

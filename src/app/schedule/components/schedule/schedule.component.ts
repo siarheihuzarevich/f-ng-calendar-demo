@@ -17,6 +17,7 @@ import { ScheduleService } from '../../schedule.service';
 import { MatIconButton } from '@angular/material/button';
 import { DatePipe } from '@angular/common';
 import { IActionPanelValue } from '../action-panel/i-action-panel-value';
+import { INewScheduleItem } from '../../domain/i-new-schedule-item';
 
 @Component({
   selector: 'schedule',
@@ -54,8 +55,8 @@ export class ScheduleComponent {
   public next: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
-    private scheduleApiService: ScheduleService,
-    private changeDetectorRef: ChangeDetectorRef
+      private scheduleApiService: ScheduleService,
+      private changeDetectorRef: ChangeDetectorRef
   ) {
   }
 
@@ -74,5 +75,29 @@ export class ScheduleComponent {
     this.viewModel = this.scheduleApiService.filter(this.value!.employees, this.originalModel!);
 
     this.changeDetectorRef.detectChanges();
+  }
+
+  public createItem(item: INewScheduleItem): void {
+    const column = this.findColumn(item);
+    if (column !== undefined) {
+      const row = this.findRow(item);
+      if (!this.originalModel?.rows[ row! ].cells[ column ].items) {
+        this.originalModel!.rows[ row! ].cells[ column ].items = [];
+      }
+      this.originalModel!.rows[ row! ].cells[ column ].items.push(this.scheduleApiService.getScheduleItem(item));
+    }
+    this.viewModel = this.scheduleApiService.filter(this.value!.employees, this.originalModel!);
+
+    this.changeDetectorRef.detectChanges();
+  }
+
+  private findColumn(item: INewScheduleItem): number | undefined {
+    return this.originalModel!.columns.findIndex((x) => x.id.getDate() === item.date.getDate());
+  }
+
+  private findRow(item: INewScheduleItem): number | undefined {
+    return this.originalModel!.rows.findIndex((x) => {
+      return x.id.getHours() === item.time.getHours() && x.id.getMinutes() === item.time.getMinutes();
+    });
   }
 }
