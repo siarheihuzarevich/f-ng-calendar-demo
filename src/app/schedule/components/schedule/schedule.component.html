@@ -17,7 +17,7 @@
         </f-header-row>
     </f-header>
     <f-body>
-        @for (row of viewModel?.rows;track row) {
+        @for (row of viewModel?.rows;track row; let i = $index) {
             <f-body-row>
                 <div class="time-cell">
                     <div>{{ row.id | date : 'HH:mm' }}</div>
@@ -26,7 +26,8 @@
                     <f-body-cell [id]="cell.id">
                         @for (item of cell.items;track item) {
                             <f-cell-item [id]="item.id">
-                                <schedule-item [viewModel]="item"></schedule-item>
+                                <schedule-item [viewModel]="item"
+                                               (delete)="onDeleteItem(i, cell.id, item.id)"></schedule-item>
                             </f-cell-item>
                         }
                     </f-body-cell>

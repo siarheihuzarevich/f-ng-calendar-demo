@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
-  Input,
+  ElementRef, EventEmitter,
+  Input, Output,
 } from '@angular/core';
 import { MatCard, MatCardActions, MatCardContent, MatCardHeader } from '@angular/material/card';
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -36,6 +36,9 @@ export class ScheduleItemComponent {
   @Input()
   public viewModel: IScheduleItem | undefined;
 
+  @Output()
+  public delete: EventEmitter<void> = new EventEmitter<void>();
+
   constructor(
       private elementReference: ElementRef<HTMLElement>
   ) {
@@ -46,6 +49,6 @@ export class ScheduleItemComponent {
   }
 
   public deleteScheduleItem(): void {
-    alert('delete');
+    this.delete.emit();
   }
 }

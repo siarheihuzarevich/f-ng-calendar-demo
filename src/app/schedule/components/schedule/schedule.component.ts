@@ -100,4 +100,12 @@ export class ScheduleComponent {
       return x.id.getHours() === item.time.getHours() && x.id.getMinutes() === item.time.getMinutes();
     });
   }
+
+  public onDeleteItem(rowIndex: number, cellId: string, itemId: string): void {
+    const cell = this.originalModel?.rows[rowIndex].cells.find((x) => x.id === cellId)!;
+    cell.items = cell.items.filter((x) => x.id !== itemId);
+    this.viewModel = this.scheduleApiService.filter(this.value!.employees, this.originalModel!);
+
+    this.changeDetectorRef.detectChanges();
+  }
 }
